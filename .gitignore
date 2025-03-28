@@ -1,0 +1,24 @@
+# Firebase
+.firebase/
+.firebaserc
+
+# Node.js / npm
+node_modules/
+npm-debug.log
+
+# Entorno local
+.env
+.env.local
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# IDE / Editores
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Firebase Hosting (carpeta de caché)
+.firebase/hosting.*.cache
