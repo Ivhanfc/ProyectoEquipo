@@ -1,24 +1,37 @@
 # Firebase
 .firebase/
 .firebaserc
+firebase-debug.log
+firebase-export-*.log
 
-# Node.js / npm
+# Node.js
 node_modules/
 npm-debug.log
+package-lock.json
 
-# Entorno local
+# Entorno y variables
 .env
 .env.local
+*.key
+*.pem
 
 # Archivos de sistema
 .DS_Store
 Thumbs.db
-
-# IDE / Editores
-.idea/
-.vscode/
 *.swp
 *.swo
 
-# Firebase Hosting (carpeta de caché)
-.firebase/hosting.*.cache
+# Directorios de IDEs
+.idea/
+.vscode/
+*.code-workspace
+
+# Firebase Emulators
+.emulators/
+
+# Dataconnect (si usas esa función)
+dataconnect-geo/
+dataconnect/
+
+# Archivos de configuración local
+database.rules.json  # ¡Cuidado! Solo ignora si tienes una copia segura
