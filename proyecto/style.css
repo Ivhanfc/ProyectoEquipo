@@ -1,26 +1,28 @@
 @font-face {
     font-family: 'Lilita_One';
     src: url(LilitaOne-Regular.ttf);
-}
-* {
+  }
+  
+  * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-
-body {
-    
+  }
+  
+  body {
     font-family: Arial, sans-serif;
-    background-color: #eef1f7;
-    text-align: center;
     background-color: rgb(18, 12, 84);
-background-size: auto;
-backdrop-filter: blur(5px);
-    
-}
-
-header {
-    font-size: 28px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  header {
+    font-size: clamp(20px, 5vw, 28px);
     width: 100%;
     height: 80px;
     background-color: #132556;
@@ -29,108 +31,113 @@ header {
     justify-content: center;
     color: white;
     font-weight: bold;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-    ul{
-        border: #eef1f7 solid 1px;
-        border-radius: 10px;
-        padding: 10px;
-    }
-.sensor-info {
-     justify-content: center;
-    align-items: center;
+  }
+  
+  ul {
+    border: 1px solid #eef1f7;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .sensor-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #aa00ff;
     color: white;
     width: 100%;
-    max-width: 400px;
+    max-width: 700px;
     padding: 20px;
     border-radius: 15px;
     margin: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
-margin: 40px auto
-}
-
-i {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.sensor-info:hover {
+  }
+  
+  .sensor-info:hover {
     transform: scale(1.05);
-}
-
-.sensor-info img {
+  }
+  
+  .sensor-info img {
     width: 80px;
     height: 80px;
     margin-bottom: 10px;
-}
-
-.label-main {
-    font-size: 22px;
+  }
+  
+  .label-main {
+    font-size: clamp(18px, 4vw, 22px);
     font-weight: bold;
     font-family: 'Lilita_One';
-    margin-bottom: 5px;
-}
-
-.dropdown {
+  }
+  
+  i {
+    font-size: clamp(24px, 5vw, 30px);
+    margin-bottom: 10px;
+  }
+  
+  .dropdown {
     margin-top: 15px;
     position: relative;
     width: 100%;
     text-align: center;
-}
-
-.dropdown button {
+  }
+  
+  .dropdown button {
     background-color: white;
     color: #1e3a8a;
-    padding: 10px 15px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     width: 80%;
-    transition: background 0.2s ease;
-}
-
-.dropdown button:hover {
-    background-color: #dbeafe;
-}
-
-.dropdown-content {
+  }
+  
+  .dropdown-content {
     display: none;
     position: absolute;
     background: white;
     color: black;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    min-width: 100px;
     width: 80%;
     z-index: 1;
     border-radius: 5px;
     overflow: hidden;
-    margin-top: 5px;
-}
-
-.dropdown:hover .dropdown-content {
+  }
+  
+  .dropdown:hover .dropdown-content {
     display: block;
-}
-
-.dropdown-content a {
+  }
+  
+  .dropdown-content a {
     display: block;
     padding: 10px;
     text-decoration: none;
     color: black;
-}
-
-.dropdown-content a:hover {
+  }
+  
+  .dropdown-content a:hover {
     background: lightgray;
-}
-
-@media (max-width: 600px) {
-    .sensor-info {
-        width: 90%;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 600px) {
+    header {
+      height: 60px;
+      font-size: 20px;
     }
-}
+  
+    .sensor-info {
+      width: 90%;
+    }
+  
+    .dropdown button {
+      font-size: 14px;
+    }
+  
+    i {
+      font-size: 24px;
+    }
+  }
+  
