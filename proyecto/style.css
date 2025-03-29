@@ -21,6 +21,16 @@
     gap: 20px;
   }
   
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    max-width: 1000; /* Increased max-width for larger screens */
+    padding: 20px;
+    margin: auto;
+  }
   header {
     font-size: clamp(20px, 5vw, 28px);
     width: 100%;
@@ -45,23 +55,18 @@
     align-items: center;
     background-color: #aa00ff;
     color: white;
-    width: 100%;
-    max-width: 700px;
-    padding: 20px;
+    width: 95%; /* Increased width to make it wider */
+    max-width: 1200px; /* Increased max-width for larger screens */
+    padding: 60px;
+    
     border-radius: 15px;
-    margin: 10px;
+    margin: 20px auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
   }
   
   .sensor-info:hover {
     transform: scale(1.05);
-  }
-  
-  .sensor-info img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
   }
   
   .label-main {
@@ -122,14 +127,16 @@
   }
   
   /* Responsividad */
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     header {
       height: 60px;
       font-size: 20px;
     }
   
     .sensor-info {
-      width: 90%;
+      margin: 30px auto;
+      width: 100%;
+      padding: 15px;
     }
   
     .dropdown button {
