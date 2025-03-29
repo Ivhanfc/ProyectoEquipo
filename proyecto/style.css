@@ -55,10 +55,10 @@ header {
     transition: transform 0.3s ease-in-out;
 }
 
-img {
-    width: 80px;
-    height: 80px;
+i {
+    font-size: 30px;
     margin-bottom: 10px;
+    color: #fbbf24;
 }
 
 .sensor-info:hover {
