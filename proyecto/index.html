@@ -3,35 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+    <title>SecurityProject</title>
 </head>
 <body>
-    <script>
-        // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBVYMeMZsn_hxSyoYVopGcgx9ydr0BhxDY",
-  authDomain: "proyectocecyte-9f75e.firebaseapp.com",
-  projectId: "proyectocecyte-9f75e",
-  storageBucket: "proyectocecyte-9f75e.firebasestorage.app",
-  messagingSenderId: "478449984037",
-  appId: "1:478449984037:web:34110861ef0289292cd5cc",
-  measurementId: "G-DV46P0XEV0"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-    </script>
-
-<h1>HOLA BIENVENIDO </h1>
-
-    
+    <header>
+        <h1>House Security</h1>
+    </header>
+    <div class="main-container">
+        <div class="sensor-info">
+            <i class="fa-solid fa-door-open"></i>  
+            <p class="label-main">Puerta Principal</p>
+            <p>Sensor Infrarrojo</p>
+            <div class="dropdown">
+                <button>Opciones</button>
+                <div class="dropdown-content">
+                    <a href="#">Cerrar Puerta</a>
+                    <a href="#">Ver Registro</a>
+                </div>
+            </div>
+        </div>
+        <div class="sensor-info">
+            <i class="fa-regular fa-window-maximize"></i>            <p class="label-main">Ventana Salón</p>
+            <p>Sensor Magnético</p>
+            <div class="dropdown">
+                <button>Opciones</button>
+                <div class="dropdown-content">
+                    <a href="#">Cerrar Ventana</a>
+                    <a href="#">Ver Registro</a>
+                </div>
+            </div>
+        </div>
+        <div class="sensor-info">
+            <i class="fa-regular fa-window-maximize"></i>            <p class="label-main">Ventana Cuarto</p>
+            <p>Sensor Magnético</p>
+            <div class="dropdown">
+                <button>Opciones</button>
+                <div class="dropdown-content">
+                    <a href="#">Cerrar Ventana</a>
+                    <a href="#">Ver Registro</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

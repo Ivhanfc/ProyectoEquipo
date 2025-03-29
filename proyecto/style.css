@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'Lilita_One';
+    src: url(LilitaOne-Regular.ttf);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef1f7;
+    text-align: center;
+    background-image: url(4k-ultra-hd-landscape-wallpaper-awid1q3a5dov0lop.jpg);
+background-size: auto;
+backdrop-filter: blur(5px);
+}
+
+header {
+    font-size: 28px;
+    width: 100%;
+    height: 80px;
+    background-color: #1e3a8a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    opacity: 0.9;
+    
+}
+
+.sensor-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3b82f6;
+    color: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.sensor-info:hover {
+    transform: scale(1.05);
+}
+
+.sensor-info img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.label-main {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Lilita_One';
+    margin-bottom: 5px;
+}
+
+.dropdown {
+    margin-top: 15px;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown button {
+    background-color: white;
+    color: #1e3a8a;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    width: 80%;
+    transition: background 0.2s ease;
+}
+
+.dropdown button:hover {
+    background-color: #dbeafe;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    color: black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 100px;
+    width: 80%;
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background: lightgray;
+}
+
+@media (max-width: 600px) {
+    .sensor-info {
+        width: 90%;
+    }
+}
