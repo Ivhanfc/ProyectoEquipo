@@ -132,7 +132,7 @@
   }
   
   /* Responsiveness */
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     header {
       height: 60px;
       font-size: 20px;
