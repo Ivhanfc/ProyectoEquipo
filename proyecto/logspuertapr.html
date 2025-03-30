@@ -23,8 +23,8 @@
     <div class="sensor-info">
       <i class="fa-solid fa-door-open"></i>  
       <p class="label-main">Puerta Principal</p>
-      <p>Sensor Infrarrojo</p>
-      <p id="estado">Estado: Desconocido</p>
+      <p>Sensor Ultraspnico</p>
+      <p id="estado">Estado: Activo</p>
       <p id="ultimo-movimiento">Último movimiento: -</p>
       <p>Registro:</p>
       <ul id="sensor-list"></ul>
@@ -41,21 +41,23 @@
   <script>
     // Configuración de Firebase
     const firebaseConfig = {
-      apiKey: "TU_API_KEY",
-      authDomain: "TU_PROJECT_ID.firebaseapp.com",
-      databaseURL: "https://TU_PROJECT_ID.firebaseio.com",
-      projectId: "TU_PROJECT_ID",
-      storageBucket: "TU_PROJECT_ID.appspot.com",
-      messagingSenderId: "TU_MESSAGING_SENDER_ID",
-      appId: "TU_APP_ID"
-    };
+    apiKey: "AIzaSyBVYMeMZsn_hxSyoYVopGcgx9ydr0BhxDY",
+    authDomain: "proyectocecyte-9f75e.firebaseapp.com",
+    databaseURL: "https://proyectocecyte-9f75e-default-rtdb.firebaseio.com",
+    projectId: "proyectocecyte-9f75e",
+    storageBucket: "proyectocecyte-9f75e.firebasestorage.app",
+    messagingSenderId: "478449984037",
+    appId: "1:478449984037:web:34110861ef0289292cd5cc",
+    measurementId: "G-DV46P0XEV0"
+  };
+
 
     // Inicializar Firebase
     firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
 
     // Escuchar datos en tiempo real
-    database.ref('sensores/puerta_principal').on('value', (snapshot) => {
+    database.ref('sensores/ultrasonico').on('value', (snapshot) => {
       const data = snapshot.val();
       if (data) {
         document.getElementById('estado').textContent = `Estado: ${data.estado}`;
@@ -74,6 +76,12 @@
           const li = document.createElement('li');
           li.textContent = `${key}: ${data[key]}`;
           sensorList.appendChild(li);
+          //agregar cm al final de cada registro
+          li.textContent += ' cm';
+          //redondear a 2 decimales
+          li.textContent = li.textContent.replace(/(\d+(\.\d+)?)/, (match) => {
+            return parseFloat(match).toFixed(2);
+          });
         });
       } else {
         sensorList.innerHTML = '<li>No hay registros disponibles</li>';
