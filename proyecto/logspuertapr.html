@@ -7,6 +7,10 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="conexionjs.js"></script>
+
     <title>SecurityProject</title>
 </head>
 <body>
@@ -22,19 +26,12 @@
            <p>Ultimo movimiento: 2023-10-01 12:00</p>
            <p>Registro:</p>
               <ul>
-                 <li>2023-10-01 12:00 - Puerta cerrada</li>
-                 <li>2023-10-01 11:50 - Puerta abierta</li>
-                 <li>2023-10-01 11:45 - Puerta cerrada</li>
-                 <li>2023-10-01 12:00 - Puerta cerrada</li>
-                 <li>2023-10-01 11:50 - Puerta abierta</li>
-                 <li>2023-10-01 11:45 - Puerta cerrada</li>
-                 <li>2023-10-01 12:00 - Puerta cerrada</li>
-                 <li>2023-10-01 11:50 - Puerta abierta</li>
-                 <li>2023-10-01 11:45 - Puerta cerrada</li>
-                 <li>2023-10-01 12:00 - Puerta cerrada</li>
-                 <li>2023-10-01 11:50 - Puerta abierta</li>
-                 <li>2023-10-01 11:45 - Puerta cerrada</li>
-               
+               <script>
+                database.ref('usuarios').on('value', (snapshot) => {
+  const data = snapshot.val();
+  console.log('Datos actualizados:', data);
+});
+               </script>
                 </ul>
              
            <div class="dropdown">
