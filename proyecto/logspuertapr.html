@@ -1,48 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script src="conexionjs.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <title>SecurityProject</title>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="conexionjs.js" defer></script>
+
+  <title>SecurityProject</title>
 </head>
 <body>
-    <header>
-        <h1>House Security</h1>
-    </header>
-    <div class="main-container">
-        <div class="sensor-info">
-            <i class="fa-solid fa-door-open"></i>  
-            <p class="label-main">Puerta Principal</p>
-            <p>Sensor Infrarrojo</p>
-           <p>Estado: cerrado</p>
-           <p>Ultimo movimiento: 2023-10-01 12:00</p>
-           <p>Registro:</p>
-              <ul>
-               <script>
-                database.ref('Sensores').on('value', (snapshot) => {
-  const data = snapshot.val();
-  console.log('Datos actualizados:', data);
-});
-               </script>
-                </ul>
-             
-           <div class="dropdown">
-                <button>Opciones</button>
-                <div class="dropdown-content">
-                    <a href="#">Cerrar Puerta</a>
-                </div>
-    
-            </div>
+  <header>
+    <h1>House Security</h1>
+  </header>
 
+  <div class="main-container">
+    <div class="sensor-info">
+      <i class="fa-solid fa-door-open"></i>  
+      <p class="label-main">Puerta Principal</p>
+      <p>Sensor Infrarrojo</p>
+      <p id="estado">Estado: Desconocido</p>
+      <p id="ultimo-movimiento">Último movimiento: -</p>
+      <p>Registro:</p>
+      <ul id="sensor-list"></ul>
+
+      <div class="dropdown">
+        <button>Opciones</button>
+        <div class="dropdown-content">
+          <a href="#">Cerrar Puerta</a>
         </div>
+      </div>
+    </div>
+  </div>
 
+  <script>
+    // Configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "TU_API_KEY",
+      authDomain: "TU_PROJECT_ID.firebaseapp.com",
+      databaseURL: "https://TU_PROJECT_ID.firebaseio.com",
+      projectId: "TU_PROJECT_ID",
+      storageBucket: "TU_PROJECT_ID.appspot.com",
+      messagingSenderId: "TU_MESSAGING_SENDER_ID",
+      appId: "TU_APP_ID"
+    };
+
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Escuchar datos en tiempo real
+    database.ref('sensores/puerta_principal').on('value', (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        document.getElementById('estado').textContent = `Estado: ${data.estado}`;
+        document.getElementById('ultimo-movimiento').textContent = `Último movimiento: ${data.ultimo_movimiento}`;
+      }
+    });
+
+    // Mostrar el historial de registros
+    database.ref('sensores/ultrasonico').on('value', (snapshot) => {
+      const data = snapshot.val();
+      const sensorList = document.getElementById('sensor-list');
+      sensorList.innerHTML = '';
+
+      if (data) {
+        Object.keys(data).forEach(key => {
+          const li = document.createElement('li');
+          li.textContent = `${key}: ${data[key]}`;
+          sensorList.appendChild(li);
+        });
+      } else {
+        sensorList.innerHTML = '<li>No hay registros disponibles</li>';
+      }
+    });
+  </script>
 </body>
 </html>
