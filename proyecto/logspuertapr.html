@@ -27,7 +27,7 @@
            <p>Registro:</p>
               <ul>
                <script>
-                database.ref('usuarios').on('value', (snapshot) => {
+                database.ref('Sensores').on('value', (snapshot) => {
   const data = snapshot.val();
   console.log('Datos actualizados:', data);
 });
