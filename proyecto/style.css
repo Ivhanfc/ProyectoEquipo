@@ -10,8 +10,8 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: rgb(18, 12, 84);
+  font-family: 'Lilita_One', sans-serif;
+  background-color: #000957;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -24,11 +24,12 @@ header {
   font-size: clamp(20px, 5vw, 28px);
   width: 100%;
   height: 80px;
-  background-color: #132556;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #ccd4e5;
+  font-family: 'Lilita_One', sans-serif;
+  letter-spacing: 5px;
   font-weight: bold;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -42,6 +43,13 @@ header {
   max-width: 600px;
 }
 
+.label-main {
+  letter-spacing: 1.5px;
+}
+
+p{
+  letter-spacing: 0.5px;
+}
 .sensor-info {
   display: flex;
   flex-direction: column;
@@ -71,49 +79,17 @@ i {
   margin-bottom: 10px;
 }
 
-.dropdown {
-  margin-top: 15px;
-  position: relative;
-  width: 100%;
-  text-align: center;
-}
-
-.dropdown button {
+.button-opciones{
   background-color: white;
-  color: #1e3a8a;
-  padding: 12px;
+  color: black;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  width: 100%;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: white;
-  color: black;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-content a {
-  display: block;
   padding: 10px;
-  text-decoration: none;
-  color: black;
-}
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bolder;
+  font-size: 18px;
+  height: auto;
 
-.dropdown-content a:hover {
-  background: lightgray;
 }
 
 button {
