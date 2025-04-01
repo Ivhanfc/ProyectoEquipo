@@ -49,5 +49,23 @@
             </div>
         </div>
     </div>
+    <script>
+        // Solicitar permiso
+        function pedirPermisoNotificaciones() {
+          if ("Notification" in window) {
+            Notification.requestPermission().then(permiso => {
+              if (permiso === "granted") {
+                new Notification("¡Hola!", { 
+                  body: "Esta es una notificación web.",
+                  icon: "https://ejemplo.com/icono.png"
+                });
+              }
+            });
+          }
+        }
+      
+        // Llamar esta función desde un botón en tu web
+        document.getElementById("boton-notificar").addEventListener("click", pedirPermisoNotificaciones);
+      </script>
 </body>
 </html>
