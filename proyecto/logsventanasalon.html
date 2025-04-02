@@ -1,52 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleWindow.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
-    <title>SecurityProject</title>
+    <title>VentanaSalon</title>
 </head>
+
 <body>
     <header>
         <h1>AEGIS</h1>
     </header>
     <div class="main-container">
         <div class="sensor-info">
-            <i class="fa-regular fa-window-maximize"></i>            <p class="label-main">Ventana Salón</p>
+            <i class="fa-regular fa-window-maximize"></i>
+            <p class="label-main">Ventana Salón</p>
             <p>Sensor Magnético</p>
-            <div class="dropdown">
-                 <p>Estado: cerrado</p>
-           <p>Ultimo movimiento: 2023-10-01 12:00</p>
-           <p>Registro:</p>
-              <ul>
-                 <li>2023-10-01 12:00 - Puerta cerrada</li>
-                 <li>2023-10-01 11:50 - Puerta abierta</li>
-                 <li>2023-10-01 11:45 - Puerta cerrada</li>
-                 <li>2023-10-01 12:00 - Puerta cerrada</li>
-                 <li>2023-10-01 11:50 - Puerta abierta</li>
-                 <li>2023-10-01 11:45 - Puerta cerrada</li>
-                 <li>2023-10-01 12:00 - Puerta cerrada</li>
-                 <li>2023-10-01 11:50 - Puerta abierta</li>
-                 <li>2023-10-01 11:45 - Puerta cerrada</li>
-                 <li>2023-10-01 12:00 - Puerta cerrada</li>
-                 <li>2023-10-01 11:50 - Puerta abierta</li>
-                 <li>2023-10-01 11:45 - Puerta cerrada</li>
-               
-                </ul>
-             
-           <div class="dropdown">
-                <button>Opciones</button>
-                <div class="dropdown-content">
-                    <a href="#">Cerrar Puerta</a>
-                </div>
-    
+            <p>Estado: cerrado</p>
+            <p>Ultimo movimiento: 2023-10-01 12:00</p>
+            <p>Registro:</p>
+            <ul>
+                <script>
+                    firebase.initializeApp(firebaseConfig);
+                    const database = firebase.database();
+
+                    // Escuchar datos en tiempo real
+                    database.ref('sensores/utrasonico').on('value', (snapshot) => {
+                        const data = snapshot.val();
+                        if (data) {
+                            document.getElementById('estado').textContent = `Estado: ${data.estado}`;
+                            document.getElementById('ultimo-movimiento').textContent = `Último movimiento: ${data.ultimo_movimiento}`;
+                        }
+                    });
+
+                    // Mostrar el historial de registros
+                    database.ref('sensores/ultrasonico').on('value', (snapshot) => {
+                        const data = snapshot.val();
+                        const sensorList = document.getElementById('sensor-list');
+                        sensorList.innerHTML = '';
+
+                        if (data) {
+                            Object.keys(data).forEach(key => {
+                                const li = document.createElement('li');
+                                li.textContent = `${key}: ${data[key]}`;
+                                sensorList.appendChild(li);
+                                //agregar cm al final de cada registro
+                                li.textContent += ' cm';
+                                //redondear a 2 decimales
+                                li.textContent = li.textContent.replace(/(\d+(\.\d+)?)/, (match) => {
+                                    return parseFloat(match).toFixed(2);
+                                });
+                            });
+                        } else {
+                            sensorList.innerHTML = '<li>No hay registros disponibles</li>';
+                        }
+                    });
+                </script>
+            </ul>
+
+            <div class="buttons">
+                <a href="index.html">Regresar</a>
+                <a href="#">Cerrar Puerta</a>
             </div>
 
+
+
         </div>
-        <a href="index.html"><button id="regresar">Regresar
-        </button></a>
+    </div>
 </body>
+
 </html>

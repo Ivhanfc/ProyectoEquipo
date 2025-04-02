@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
   font-family: 'Lilita_One';
   src: url(LilitaOne-Regular.ttf);
@@ -10,8 +11,8 @@
 }
 
 body {
-  font-family: 'Lilita_One', sans-serif;
-  background-color: #000957;
+  font-family: Arial, sans-serif;
+  background-color: rgb(255, 255, 255);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -22,46 +23,50 @@ body {
 
 header {
   font-size: clamp(20px, 5vw, 28px);
+  font-family: 'Poppins';
   width: 100%;
-  height: 80px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ccd4e5;
-  font-family: 'Lilita_One', sans-serif;
-  letter-spacing: 5px;
+  color: white;
+  background-color: #aa00ff;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  position: absolute;
+  top: 0;
 }
 
 .main-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 600px;
+  width: auto;
+  margin-top: 100px;
+  gap: 20px;
 }
 
-.label-main {
-  letter-spacing: 1.5px;
-}
-
-p{
-  letter-spacing: 0.5px;
-}
 .sensor-info {
   display: flex;
-  flex-direction: column;
   align-items: center;
   background-color: #aa00ff;
   color: white;
   width: 100%;
+  height: 150px;
   padding: 40px;
+
   border-radius: 15px;
-  margin-bottom: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
+}
+
+.sensor-info p{
+text-align: left;
+}
+
+.nombres-sensor{
+  display: block;
 }
 
 .sensor-info:hover {
@@ -69,27 +74,29 @@ p{
 }
 
 .label-main {
-  font-size: clamp(18px, 4vw, 22px);
-  font-weight: bold;
+  font-size: clamp(18px, 4vw, 26px);
+  letter-spacing: 1px;
+  font-weight: lighter;
   font-family: 'Lilita_One';
 }
 
-i {
+img {
   font-size: clamp(24px, 5vw, 30px);
-  margin-bottom: 10px;
+width: 50px;
+height: 45px;
+margin: 10px;
+
 }
 
-.button-opciones{
-  background-color: white;
-  color: black;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-weight: bolder;
-  font-size: 18px;
-  height: auto;
+.space{
+  width: 30%;
+}
 
+.sensor-info a{
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
 button {
@@ -114,11 +121,20 @@ a {
   color: #1e3a8a;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1300px) {
+  html{
+    align-items: center;
+    align-content: center;
+  }
+  .main-container{
+    display: block;
+    margin: 10px;
+    margin-top: 100px;
+   
+  }
+  
   .sensor-info {
-      padding: 20px;
-  }
-  .dropdown button {
-      font-size: 14px;
-  }
+      padding: 15px;
+    margin-bottom: 10px;
+    }
 }

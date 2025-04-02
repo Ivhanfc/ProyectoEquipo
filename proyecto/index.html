@@ -1,59 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
-    <title>AEGIS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+  <link rel='stylesheet'
+    href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+  <title>Aegis</title>
 </head>
+
 <body>
-    <header>
-        <h1>AEGIS</h1>
-    </header>
-    <div class="main-container">
-        <div class="sensor-info">
-            <i class="fa-solid fa-door-open"></i>  
-            <p class="label-main">Puerta Principal</p>
-            <p>Sensor ultrasonico</p>
-            
-                <a href="logspuertapr.html" class="button-opciones">Opciones</a>
-                
-            
-        </div>
-        <div class="sensor-info">
-            <i class="fa-regular fa-window-maximize"></i>            <p class="label-main">Ventana Salón</p>
-            <p>Sensor Magnético</p>
-            <a href="logspuertapr.html" class="button-opciones">Opciones</a>
-
-        </div>
-        <div class="sensor-info">
-            <i class="fa-regular fa-window-maximize"></i>            <p class="label-main">Ventana Cuarto</p>
-            <p>Sensor Magnético</p>
-            <a href="logspuertapr.html" class="button-opciones">Opciones</a>
-
-            </div>
-        </div>
+  <header>
+    <h1>AEGIS</h1>
+  </header>
+  <div class="main-container">
+    <div class="sensor-info">
+      <img src="door-open.png" alt="puerta">
+      <div class="nombres-sensor">
+        <p class="label-main">Puerta Principal</p>
+        <p>Sensor ultrasonico</p>
+      </div>
+      <div class="space"></div>
+      <a href="logspuertapr.html">Opciones</a>
     </div>
-    <script>
-        // Solicitar permiso
-        function pedirPermisoNotificaciones() {
-          if ("Notification" in window) {
-            Notification.requestPermission().then(permiso => {
-              if (permiso === "granted") {
-                new Notification("¡Hola!", { 
-                  body: "Esta es una notificación web.",
-                  icon: "https://ejemplo.com/icono.png"
-                });
-              }
+    <div class="sensor-info">
+      <img src="window-frame (1).png" alt="window">
+      <div class="nombres-sensor">
+        <p class="label-main">Ventana Salón</p>
+        <p>Sensor Magnético</p>
+      </div>
+      <div class="space"></div>
+      <a href="logsventanasalon.html">Opciones</a>
+    </div>
+    <div class="sensor-info">
+      <img src="window-frame (1).png" alt="window">
+      <div class="nombres-sensor">
+        <p class="label-main">Ventana Cuarto</p>
+        <p>Sensor Magnético</p>
+      </div>
+      <div class="space"></div>
+      <a href="logsventanasalon copy.html">Opciones</a>
+    </div>
+
+
+    <div class="sensor-info">
+      <img src="window-frame (1).png" alt="window">
+      <div class="nombres-sensor">
+        <p class="label-main">Ventana Cuarto</p>
+        <p>Sensor Magnético</p>
+      </div>
+      <div class="space"></div>
+      <a href="logsventanasalon copy.html">Opciones</a>
+    </div>
+  </div>
+  <script>
+    // Solicitar permiso
+    function pedirPermisoNotificaciones() {
+      if ("Notification" in window) {
+        Notification.requestPermission().then(permiso => {
+          if (permiso === "granted") {
+            new Notification("¡Hola!", {
+              body: "Esta es una notificación web.",
+              icon: "https://ejemplo.com/icono.png"
             });
           }
-        }
-      
-        // Llamar esta función desde un botón en tu web
-        document.getElementById("boton-notificar").addEventListener("click", pedirPermisoNotificaciones);
-      </script>
+        });
+      }
+    }
+
+    // Llamar esta función desde un botón en tu web
+    document.getElementById("boton-notificar").addEventListener("click", pedirPermisoNotificaciones);
+  </script>
 </body>
+
 </html>
