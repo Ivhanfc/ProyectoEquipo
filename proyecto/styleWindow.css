@@ -38,6 +38,13 @@ header{
     letter-spacing: 1px;
 }
 
+.sensor-info img{
+    width: 60px;
+    height: 60px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
 .sensor-info p{
     font-size: 18px;
     font-family: Poppins;

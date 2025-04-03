@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="LoginStyle.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Login</title>
+</head>
+<body>
+    <div class="wrapper">
+
+        <span class="icon-close"><i class='bx bx-window-close'></i></span>
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <i class='bx bxs-envelope'></i></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                    <input type="password" required>
+                    <label>Contraseña</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Recuerdame</label>
+                    <a href="#">Olvide Contraseña</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>¿No tienes cuenta?<a href="#" class="register-link">Registrarse</a></p>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="form-box register">
+            <h2>Registro</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <i class='bx bxs-user' ></i></span>
+                    <input type="text" required>
+                    <label>Usuario</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <i class='bx bxs-envelope'></i></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                    <input type="password" required>
+                    <label>Contraseña</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Estoy de acuerdo con los terminos y condiciones</label>
+                </div>
+                <button type="submit" class="btn">Registrarse</button>
+                <div class="login-register">
+                <p>Ya tienes una cuenta <a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
