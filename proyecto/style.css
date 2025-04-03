@@ -121,6 +121,41 @@ a {
   color: #1e3a8a;
 }
 
+
+.mas-app-info{
+  width: 100%;
+  height: auto;
+margin-top: 20px;
+
+
+}
+
+.inside-mas-info{
+  width: 66%;
+  height: auto;
+translate: 26%;
+border-radius: 15px;
+background-color: #aa00ff;
+}
+.inside-mas-info h2{
+  font-size: 36px;
+  font-family: "Lilita_One";
+  letter-spacing: 1px;
+  color: white;
+}
+
+.inside-mas-info p{
+  padding: 20px;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.images-mas-info img{
+  width: 250px;
+  height: 150px;
+}
+
 @media (max-width: 1300px) {
   html{
     align-items: center;
@@ -136,5 +171,10 @@ a {
   .sensor-info {
       padding: 15px;
     margin-bottom: 10px;
+    }
+
+    .inside-mas-info{
+     width: 100%;
+     translate: 1%;
     }
 }

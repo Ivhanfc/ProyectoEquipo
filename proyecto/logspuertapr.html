@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
 
   <title>PuertaPrincipal</title>
 </head>
+
 <body>
   <header>
     <h1>AEGIS</h1>
@@ -33,16 +35,15 @@
 
         <div class="menu-bottom">
           <a href="index.html">Regresar</a>
-            <button><a href="#">Cerrar Puerta</a></button>
-          </div>
-          <button id="registros-ver">Registros</button>
-          <div id="dropdown-menu" class="dropdown-content">
-            <p>registro 1</p>
-            <p>registro 2</p>
-            <p>registro 3</p>
-            <p>registro 4</p>
-            <p>registro 5</p>
-          </div>
+          <button><a href="#">Cerrar Puerta</a></button>
+        </div>
+        <button id="registros-ver">Registros</button>
+        <div id="dropdown-menu" class="dropdown-content">
+          <p>registro 1</p>
+          <p>registro 2</p>
+          <p>registro 3</p>
+          <p>registro 4</p>
+          <p>registro 5</p>
         </div>
       </div>
     </div>
@@ -51,15 +52,15 @@
   <script>
     // Configuración de Firebase
     const firebaseConfig = {
-    apiKey: "AIzaSyBVYMeMZsn_hxSyoYVopGcgx9ydr0BhxDY",
-    authDomain: "proyectocecyte-9f75e.firebaseapp.com",
-    databaseURL: "https://proyectocecyte-9f75e-default-rtdb.firebaseio.com",
-    projectId: "proyectocecyte-9f75e",
-    storageBucket: "proyectocecyte-9f75e.firebasestorage.app",
-    messagingSenderId: "478449984037",
-    appId: "1:478449984037:web:34110861ef0289292cd5cc",
-    measurementId: "G-DV46P0XEV0"
-  };
+      apiKey: "AIzaSyBVYMeMZsn_hxSyoYVopGcgx9ydr0BhxDY",
+      authDomain: "proyectocecyte-9f75e.firebaseapp.com",
+      databaseURL: "https://proyectocecyte-9f75e-default-rtdb.firebaseio.com",
+      projectId: "proyectocecyte-9f75e",
+      storageBucket: "proyectocecyte-9f75e.firebasestorage.app",
+      messagingSenderId: "478449984037",
+      appId: "1:478449984037:web:34110861ef0289292cd5cc",
+      measurementId: "G-DV46P0XEV0"
+    };
 
 
     // Inicializar Firebase
@@ -98,20 +99,21 @@
       }
     });
 
-    document.getElementById("registros-ver").addEventListener("click", function() {
-    let dropdown = document.getElementById("dropdown-menu");
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-});
+    document.getElementById("registros-ver").addEventListener("click", function () {
+      let dropdown = document.getElementById("dropdown-menu");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
 
-// Ocultar el menú si se hace clic fuera
-document.addEventListener("click", function(event) {
-    let dropdown = document.getElementById("dropdown-menu");
-    let button = document.getElementById("registros-ver");
-    if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+    // Ocultar el menú si se hace clic fuera
+    document.addEventListener("click", function (event) {
+      let dropdown = document.getElementById("dropdown-menu");
+      let button = document.getElementById("registros-ver");
+      if (!button.contains(event.target) && !dropdown.contains(event.target)) {
         dropdown.style.display = "none";
-    }
-});
+      }
+    });
   </script>
 
 </body>
+
 </html>

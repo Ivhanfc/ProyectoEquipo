@@ -58,6 +58,34 @@ header{
     font-weight: bold;
 }
 
+
+.dropdown-content{
+    display: none;
+    position: static;  
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    border-radius: 5px;
+}
+
+.dropdown-content p{
+    display: block;
+    padding: 10px;
+    color: black;
+}
+
+.dropdown-content p:hover{
+    background-color: #d395f2;
+}
+
+
+
+#registros-ver{
+    margin-top: 20px;
+    padding: 5px;
+
+}
+
 @media (max-width: 1300px) {
     .main-container{
         width: 100%;
