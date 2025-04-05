@@ -1,5 +1,6 @@
+
 const firebaseConfig = {
-    apiKey: "AIzaSyBVYMeMZsn_hxSyoYVopGcgx9ydr0BhxDY",
+    apiKey: "AIzaSyDHQO4dEBis9d3wGcl71sJGpYMFPIDQhXU",
     authDomain: "proyectocecyte-9f75e.firebaseapp.com",
     databaseURL: "https://proyectocecyte-9f75e-default-rtdb.firebaseio.com",
     projectId: "proyectocecyte-9f75e",
@@ -11,6 +12,7 @@ const firebaseConfig = {
 
   // Inicializar Firebase
   firebase.initializeApp(firebaseConfig);
+  const auth = getAuth(app);
   const database = firebase.database();
 
   async function sendPushNotification(token, title, body) {
@@ -54,3 +56,4 @@ const firebaseConfig = {
     '¡Alerta de movimiento!', 
     'Se detectó actividad en la cámara.'
   );
+

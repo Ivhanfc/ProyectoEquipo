@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +9,42 @@
 
     <title>Login</title>
 </head>
+
 <body>
+    <header>
+        <h2 class="logo">Logo</h2>
+        <nav class="navigation">
+            <a href="LoginPage.html">Inicio</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contacto</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
     <div class="wrapper">
 
         <span class="icon-close"><i class='bx bx-window-close'></i></span>
+
         <div class="form-box login">
             <h2>Login</h2>
             <form action="#">
                 <div class="input-box">
-                    <span class="icon">
-                        <i class='bx bxs-envelope'></i></span>
+                    <span class="icon"><i class='bx bxs-envelope'></i></span>
                     <input type="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                    <span class="icon"><i class='bx bxs-lock-alt'></i></span>
                     <input type="password" required>
                     <label>Contraseña</label>
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox">Recuerdame</label>
-                    <a href="#">Olvide Contraseña</a>
+                    <a href="#">Olvidaste tu Contraseña</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
                 <div class="login-register">
-                    <p>¿No tienes cuenta?<a href="#" class="register-link">Registrarse</a></p>
+                    <p>No tienes cuenta? <a href="#" class="register-link">Registrarse</a></p>
                 </div>
             </form>
         </div>
@@ -42,33 +54,109 @@
             <h2>Registro</h2>
             <form action="#">
                 <div class="input-box">
-                    <span class="icon">
-                        <i class='bx bxs-user' ></i></span>
+                    <span class="icon"><i class='bx bxs-user'></i></span>
                     <input type="text" required>
                     <label>Usuario</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon">
-                        <i class='bx bxs-envelope'></i></span>
+                    <span class="icon"><i class='bx bxs-envelope'></i></span>
                     <input type="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                    <span class="icon"><i class='bx bxs-lock-alt'></i></span>
                     <input type="password" required>
                     <label>Contraseña</label>
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox">Estoy de acuerdo con los terminos y condiciones</label>
+                    <label><input type="checkbox">Acepto los terminos y condiciones</label>
+
                 </div>
-                <button type="submit" class="btn">Registrarse</button>
+                <button type="submit" class="btn">Regitrarse</button>
                 <div class="login-register">
-                <p>Ya tienes una cuenta <a href="#" class="login-link">Login</a></p>
+                    <p>Ya tienes cuenta? <a href="#" class="login-link">Login</a></p>
                 </div>
             </form>
         </div>
     </div>
-    <script src="script.js"></script>
+
 </body>
+<script src="script.js"></script>
+<script src="conexionjs.js"></script>
+
+
+
+<!-- Firebase SDK -->
+<script type="module">
+    // Import the functions from Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+
+    // TODO: Replace this with your Firebase config
+    const firebaseConfig = {
+        apiKey: "AIzaSyBVYMeMZsn_hxSyoYVopGcgx9ydr0BhxDY",
+        authDomain: "proyectocecyte-9f75e.firebaseapp.com",
+        databaseURL: "https://proyectocecyte-9f75e-default-rtdb.firebaseio.com",
+        projectId: "proyectocecyte-9f75e",
+        storageBucket: "proyectocecyte-9f75e.firebasestorage.app",
+        messagingSenderId: "478449984037",
+        appId: "1:478449984037:web:34110861ef0289292cd5cc",
+        measurementId: "G-DV46P0XEV0"
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Expose auth globally (optional, useful for separate files)
+    window.firebaseAuth = auth;
+    window.firebaseCreateUser = createUserWithEmailAndPassword;
+    window.firebaseSignIn = signInWithEmailAndPassword;
+
+    document.querySelector('.form-box.register form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = e.target.querySelector('input[type="email"]').value;
+        const password = e.target.querySelector('input[type="password"]').value;
+
+        try {
+            const userCredential = await window.firebaseCreateUser(window.firebaseAuth, email, password);
+            alert('Usuario registrado con éxito!');
+
+            // Redirigir al dashboard u otra página después del registro
+            window.location.href = 'index.html';
+
+        } catch (error) {
+            console.error(error);
+            alert('Error al registrar: ' + error.message);
+        }
+    });
+
+
+
+
+</script>
+<script>
+
+    document.querySelector('.form-box.login form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = e.target.querySelector('input[type="email"]').value;
+        const password = e.target.querySelector('input[type="password"]').value;
+
+        try {
+            const userCredential = await window.firebaseSignIn(window.firebaseAuth, email, password);
+            alert('Inicio de sesión exitoso!');
+
+            // Redirigir a otra página, por ejemplo dashboard.html
+            window.location.href = 'index.html';
+
+        } catch (error) {
+            console.error(error);
+            alert('Error al iniciar sesión: ' + error.message);
+        }
+    });
+
+
+</script>
 
 </html>
