@@ -39,6 +39,43 @@
       </div>
 </body>
 <script>
+      // Escuchar datos en tiempo real
+      database.ref('sensores/utrasonico').on('value', (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        document.getElementById('estado').textContent = `Estado: ${data.estado}`;
+        document.getElementById('ultimo-movimiento').textContent = `Último movimiento: ${data.ultimo_movimiento}`;
+      }
+    });
+
+    // Mostrar el historial de registros
+    database.ref('sensores/ultrasonico2').on('value', (snapshot) => {
+      const data = snapshot.val();
+      const sensorList = document.getElementById('sensor-list');
+      sensorList.innerHTML = '';
+
+      if (data) {
+        Object.keys(data).forEach(key => {
+          const li = document.createElement('li');
+          li.textContent = `${key}: ${data[key]}`;
+          sensorList.appendChild(li);
+          //agregar cm al final de cada registro
+          li.textContent += ' cm';
+          //redondear a 2 decimales
+          li.textContent = li.textContent.replace(/(\d+(\.\d+)?)/, (match) => {
+            return parseFloat(match).toFixed(2);
+          });
+        });
+      } else {
+        sensorList.innerHTML = '<li>No hay registros disponibles</li>';
+      }
+    });
+
+    document.getElementById("registros-ver").addEventListener("click", function () {
+      let dropdown = document.getElementById("dropdown-menu");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+<script>
      document.getElementById("registros-ver").addEventListener("click", function () {
       let dropdown = document.getElementById("dropdown-menu");
       dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
