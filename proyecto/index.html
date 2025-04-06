@@ -79,24 +79,32 @@
     </div>
     </div>
   </div>
-  <script>
-    // Solicitar permiso
-    function pedirPermisoNotificaciones() {
-      if ("Notification" in window) {
-        Notification.requestPermission().then(permiso => {
-          if (permiso === "granted") {
-            new Notification("¡Hola!", {
-              body: "Esta es una notificación web.",
-              icon: "https://ejemplo.com/icono.png"
-            });
-          }
-        });
+  <script type="module">
+    import { getAuth, onAuthStateChanged } from './firebase-config.js';
+    import { initializeApp } from './firebase-config.js';
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBVYMeMZsn_hxSyoYVopGcgx9ydr0BhxDY",
+      authDomain: "proyectocecyte-9f75e.firebaseapp.com",
+      databaseURL: "https://proyectocecyte-9f75e-default-rtdb.firebaseio.com",
+      projectId: "proyectocecyte-9f75e",
+      storageBucket: "proyectocecyte-9f75e.firebasestorage.app",
+      messagingSenderId: "478449984037",
+      appId: "1:478449984037:web:34110861ef0289292cd5cc",
+      measurementId: "G-DV46P0XEV0"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+  
+    // Verificar si hay usuario logueado
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "LoginPage.html"; // Cambia por tu página de registro
       }
-    }
-
-    // Llamar esta función desde un botón en tu web
-    document.getElementById("boton-notificar").addEventListener("click", pedirPermisoNotificaciones);
+    });
   </script>
+  
 </body>
 
 </html>

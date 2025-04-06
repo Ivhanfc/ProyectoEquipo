@@ -17,6 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+let userregister = null;
 
 registro.addEventListener('click', (e) => {
     var user = document.getElementById('usuario').value;
@@ -25,6 +26,7 @@ registro.addEventListener('click', (e) => {
 
     createUserWithEmailAndPassword (auth, user, email, password) .then(cred =>{
         alert("Usuario Creado");
+        userregister = true;
         sendEmailVerification(auth.currentUser).then(() =>{
             alert('Se ha enviado un correo de verificacion');
         });
