@@ -9,6 +9,9 @@
     box-sizing: border-box;
     text-align: center;
     align-items: center;
+    -webkit-tap-highlight-color: transparent;
+  -webkit-focus-ring-color: transparent;
+  outline: none;
 }
 
 header{
