@@ -31,21 +31,33 @@
     </div>
   </a>
 
-
-  <a href="logpuertapuerta2.html">
-  <div class="sensor-info">
-    <img src="door-open.png" alt="puerta">   <div class="nombres-sensor">
-        <p class="label-main">Puerta Cuarto</p>
+<a href="logvenranasalon.html">
+    <div class="sensor-info">
+      <img src="ventana-de-la-chimenea-de-la-casa.png" alt="window">
+      <div class="nombres-sensor">
+        <p class="label-main">Ventana Cuarto</p>
         <p>Sensor ultrasonico</p>
+      </div>
+      <div class="space"></div>
+    <img src="angle-small-right.png" alt="">
+    </div>
+  </a>
+
+    <a href="sensortem.html">
+    <div class="sensor-info">
+      <img src="temperatura-baja.png" alt="window">
+      <div class="nombres-sensor">
+        <p class="label-main">Sala de Estar</p>
+        <p>Sensor de Temperatura</p>
       </div>
       <div class="space"></div>
       <img src="angle-small-right.png" alt="">
     </div>
   </a>
 
-  <a href="logestar.html">
+  <a href="logsgas.html">
     <div class="sensor-info">
-      <img src="tablero.png" alt="window">
+      <img src="gas.png" alt="window">
       <div class="nombres-sensor">
         <p class="label-main">Sala de Estar</p>
         <p>Sensor de Gas</p>
@@ -57,48 +69,73 @@
 </a>
 
 
-  <div class="mas-app-info">
-    <div class="inside-mas-info">
-      <h2>¿Que es?</h2>
-      <p>Este proyecto fue hecho con la finalidad de participar en un concurso a nivel estatal representando a CECYTE Zona Rio, tuvimos muchas dificultades con temas de tiempo y de piezas defectuosas pero estamos comprometidos con este protyecto y creemos fielmente que puede ser util para casas, pequeños negocios, fabricas y en general muchos sectores. Al tomar en cuenta la inclusion decidimos hacer unas pequeñas adaptaciones para que perosnas tanto con movilidad reducida como personas invidentes puedan utilizarlo y aprovecharse del programa🐸</p>window
-      Ventana Cuarto
-      
-      Sensor Magnético
-      
-      
-      puerta
-      
-      <div class="images-mas-info">
-      <img src="Imagen-Guapos.jpg" alt="Guapos">
-      <img src="Checonoeraaelproblema.jpg" alt="Checo Perez">
+  <section class="emergency-button">
+    <div class="button-inside">
+      <div class="sos-section"></div>
+      <h2>¿Tienes una Emergencia?</h2>
+      <p>Presiona el boton debajo y se te asistira pronto</p>
+      <div class="sos-container">
+      <div class="pulse-ring"></div>
+     <div class="pulse-ring"></div>
+      <button type="submit" id="emergencyBtn">SOS</button>
     </div>
+  
+
+      <div class="emergency-information">
+        <div id="location-section">
+          <i class='bx bx-current-location'></i>
+          <div>
+            <strong>Your current address</strong>
+            <p id="user-address">Loading location...</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
- 
-  <script type="module">
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-  
-    const firebaseConfig = {
-      apiKey: "AIzaSyBVYMeMZsn_hxSyoYVopGcgx9ydr0BhxDY",
-      authDomain: "proyectocecyte-9f75e.firebaseapp.com",
-      databaseURL: "https://proyectocecyte-9f75e-default-rtdb.firebaseio.com",
-      projectId: "proyectocecyte-9f75e",
-      storageBucket: "proyectocecyte-9f75e.firebasestorage.app",
-      messagingSenderId: "478449984037",
-      appId: "1:478449984037:web:34110861ef0289292cd5cc",
-      measurementId: "G-DV46P0XEV0"
-    };
-  
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-  
-    // Verificar si hay usuario logueado
-    onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        window.location.href = "LoginPage.html"; // Cambia por tu página de registro
+  </section>
+  <script>
+    // Solicitar permiso
+    function pedirPermisoNotificaciones() {
+      if ("Notification" in window) {
+        Notification.requestPermission().then(permiso => {
+          if (permiso === "granted") {
+            new Notification("¡Hola!", {
+              body: "Esta es una notificación web.",
+              icon: "https://ejemplo.com/icono.png"
+            });
+          }
+        });
       }
-    });
+    }
+
+    // Llamar esta función desde un botón en tu web
+    document.getElementById("boton-notificar").addEventListener("click", pedirPermisoNotificaciones);
+  </script>
+  <script>
+    // Coordenadas -> Dirección (usando OpenCage API)
+    const API_KEY = 'f2c0a8b6421247ee8ef1b23bad18cb96'; // Puedes conseguir una gratis en https://opencagedata.com/
+  
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+  
+          const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${API_KEY}`);
+          const data = await response.json();
+          const address = data.results[0].formatted;
+  
+          document.getElementById("user-address").textContent = address;
+        }, () => {
+          document.getElementById("user-address").textContent = "No se pudo obtener tu ubicación";
+        });
+      } else {
+        document.getElementById("user-address").textContent = "Geolocalización no soportada";
+      }
+    }
+  
+    // Ejecutar cuando cargue la página
+    window.onload = getLocation;
   </script>
   
 </body>

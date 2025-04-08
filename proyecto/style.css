@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 @font-face {
   font-family: 'Lilita_One';
   src: url(LilitaOne-Regular.ttf);
@@ -8,9 +9,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-focus-ring-color: transparent;
-  outline: none;
 }
 
 body {
@@ -64,11 +62,11 @@ header {
   transition: transform 0.3s ease-in-out;
 }
 
-.sensor-info p{
-text-align: left;
+.sensor-info p {
+  text-align: left;
 }
 
-.nombres-sensor{
+.nombres-sensor {
   display: block;
 }
 
@@ -85,17 +83,17 @@ text-align: left;
 
 img {
   font-size: clamp(24px, 5vw, 30px);
-width: 50px;
-height: 45px;
-margin: 10px;
+  width: 50px;
+  height: 45px;
+  margin: 10px;
 
 }
 
-.space{
+.space {
   width: 30%;
 }
 
-.sensor-info a{
+.sensor-info a {
   padding: 10px;
   border-radius: 10px;
   margin-top: 10px;
@@ -116,7 +114,7 @@ button {
 button:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
-  
+
 }
 
 a {
@@ -125,59 +123,135 @@ a {
 }
 
 
-.mas-app-info{
+.emergency-button {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.emergency-button .button-inside {
+  width: 50%;
+  height: auto;
+  background-color: #aa00ff;
+  border-radius: 15px;
+  text-align: center;
+  position: absolute;
+  transform: translate(48%);
+}
+
+.emergency-button .button-inside h2 {
+  font-size: 30px;
+  font-weight: 800;
+  font-family: Poppins;
+}
+
+.sos-section {
+  text-align: center;
+  background: #b300ff;
+  padding: 10px 20px;
+  border-radius: 16px;
+  color: #000;
+  max-width: 600px;
+  width: 100%;
+}
+
+.sos-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 80px auto 0;
+}
+
+.sos-container button {
+  padding: 10px;
+  height: auto;
+  font-size: 30px;
+  font-family: Poppins; 
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+/*Aros animados*/
+.pulse-ring {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  background: rgba(253, 27, 2, 0.816);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  z-index: 1;
+}
+
+.pulse-ring:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.emergency-information{
   width: 100%;
   height: auto;
-margin-top: 20px;
-
-
 }
 
-.inside-mas-info{
-  width: 66%;
-  height: auto;
-translate: 26%;
-border-radius: 15px;
-background-color: #aa00ff;
-}
-.inside-mas-info h2{
-  font-size: 36px;
-  font-family: "Lilita_One";
-  letter-spacing: 1px;
-  color: white;
-}
 
-.inside-mas-info p{
-  padding: 20px;
-  font-family: Arial;
+#location-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 10px 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  margin: 0 auto;
+}
+#location-section img {
+  border-radius: 50%;
+}
+#location-section strong {
   font-size: 16px;
-  font-weight: bolder;
+  color: #333;
+}
+#user-address {
+  font-size: 14px;
+  color: #666;
 }
 
-.images-mas-info img{
-  width: 250px;
-  height: 150px;
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 0;
+  }
 }
 
 @media (max-width: 1300px) {
-  html{
+  html {
     align-items: center;
     align-content: center;
   }
-  .main-container{
+
+  .main-container {
     display: block;
     margin: 10px;
     margin-top: 100px;
-   
-  }
-  
-  .sensor-info {
-      padding: 15px;
-    margin-bottom: 10px;
-    }
 
-    .inside-mas-info{
-     width: 100%;
-     translate: 1%;
-    }
+  }
+
+  .sensor-info {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  .inside-mas-info {
+    width: 100%;
+    translate: 1%;
+  }
 }

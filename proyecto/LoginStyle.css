@@ -17,7 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('Porsche\ Wallpaper.jpg') no-repeat;
+    background: url('Background Minimalist.jpg') no-repeat center center / cover;
     background-size: cover;
     background-position: center;
 }
@@ -90,7 +90,6 @@ header {
 
 
 .wrapper {
-    position: relative;
     width: 400px;
     height: 440px;
     background: transparent;
@@ -101,47 +100,44 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     overflow: hidden;
+    transition: height 0.3s ease;
     transform: scale(0);
-    transition: transform .5s ease, height .2s ease;
 }
+
 
 .wrapper.active-popup {
     transform: scale(1);
 }
 
-
 .wrapper.active {
     height: 520px;
 }
 
-.wrapper .form-box {
+.form-box {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     padding: 40px;
+    transition: transform 0.4s ease-in-out;
 }
 
-.wrapper .form-box.login {
-    transition: transform .18s ease;
-    transform: translateX(0);
+.form-box.login {
+    transform: translateX(0%);
 }
-
 
 .wrapper.active .form-box.login {
-    transition: none;
-    transform: translateX(-400px);
-
+    transform: translateX(-100%);
 }
 
-
-.wrapper .form-box.register {
-    position: absolute;
-    transition: none;
-    transform: translateX(400px);
+.form-box.register {
+    transform: translateX(100%);
 }
 
 .wrapper.active .form-box.register {
-    transition: transform .18s ease;
-    transform: translateX(0);
+    transform: translateX(0%);
 }
 
 .wrapper .icon-close {
@@ -265,4 +261,61 @@ header {
 
 .login-register p a:hover {
     text-decoration: underline;
+}
+
+/* Responsive para pantallas menores a 768px */
+@media (max-width: 400px) {
+    header {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .navigation a,
+    .navigation .btnLogin-popup {
+        margin-left: 0;
+    }
+
+    .wrapper {
+        width: 90%;
+        height: auto;
+        margin-top: 100px;
+    }
+
+    .form-box {
+        padding: 20px;
+    }
+
+    .form-box h2 {
+        font-size: 1.5em;
+    }
+
+    .input-box {
+        margin: 15px 0;
+    }
+
+    .input-box input {
+        font-size: 1em;
+    }
+
+    .btn {
+        height: 40px;
+        font-size: 1em;
+    }
+
+    .login-register {
+        font-size: 0.85em;
+        margin: 15px 0 5px;
+    }
+
+    .logo {
+        font-size: 1.5em;
+    }
 }

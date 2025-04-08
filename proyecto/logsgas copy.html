@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gasCSS.css">
+    <title>GasSection</title>
+</head>
+<body>
+    <header>
+        <h1>AEGIS</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="sensor-informacion">
+          <img src="tablero.png" alt="">
+          <div class="bottom-part">
+            <h2>Salon de Estar</h2>
+            <p>Sensor de Gas</p>
+            <p id="estado">Estado: Activo</p>
+            <p id="ultimo-movimiento">Ultimo Movimiento: -</p>
+            <p>Registro:</p>
+            <ul id="sensor-list"></ul>
+    
+            <div class="menu-bottom">
+              <a href="index.html">Regresar</a>
+              <button><a href="#">Cerrar Puerta</a></button>
+            </div>
+            <button id="registros-ver">Registros</button>
+            <div id="dropdown-menu" class="dropdown-content">
+              <p>registro 1</p>
+              <p>registro 2</p>
+              <p>registro 3</p>
+              <p>registro 4</p>
+              <p>registro 5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+<script>
+     document.getElementById("registros-ver").addEventListener("click", function () {
+      let dropdown = document.getElementById("dropdown-menu");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+
+    // Ocultar el menú si se hace clic fuera
+    document.addEventListener("click", function (event) {
+      let dropdown = document.getElementById("dropdown-menu");
+      let button = document.getElementById("registros-ver");
+      if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+</script>
+</html>

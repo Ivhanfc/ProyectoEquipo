@@ -13,7 +13,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
   <script src="conexionjs.js" defer></script>
 
-  <title>Salon De Estar</title>
+  <title>PuertaPrincipal</title>
 </head>
 
 <body>
@@ -24,10 +24,12 @@
 
   <div class="main-container">
     <div class="sensor-informacion">
-      <img src="tablero.png" alt="">
+      <img src="ventana-de-la-chimenea-de-la-casa.png" alt="">
       <div class="bottom-part">
-        <h2>Salon de Estar</h2>
-        <p>Sensor Humeadad</p>
+        <h2>Puerta Principal</h2>
+        <p>Sensor Ultrasonico</p>
+        <p id="estado">Estado: Activo</p>
+        <p id="ultimo-movimiento">Ultimo Movimiento: -</p>
         <p>Registro:</p>
         
         <ul id="sensor-list"></ul>
@@ -35,6 +37,7 @@
 
         <div class="menu-bottom">
           <a href="index.html">Regresar</a>
+          <button><a href="#">Cerrar Puerta</a></button>
         </div>
         <button id="registros-ver">Registros</button>
         <div id="dropdown-menu" class="dropdown-content">
@@ -67,7 +70,7 @@
     const database = firebase.database();
 
     // Escuchar datos en tiempo real
-    database.ref('sensores/dht11').on('value', (snapshot) => {
+    database.ref('sensores/utrasonico').on('value', (snapshot) => {
       const data = snapshot.val();
       if (data) {
         document.getElementById('estado').textContent = `Estado: ${data.estado}`;
@@ -76,7 +79,7 @@
     });
 
     // Mostrar el historial de registros
-    database.ref('sensores/dht11').on('value', (snapshot) => {
+    database.ref('sensores/ultrasonico1').on('value', (snapshot) => {
       const data = snapshot.val();
       const sensorList = document.getElementById('sensor-list');
       sensorList.innerHTML = '';
@@ -87,7 +90,6 @@
           li.textContent = `${key}: ${data[key]}`;
           sensorList.appendChild(li);
           //agregar cm al final de cada registro
-          li.textContent += ' cm';
           //redondear a 2 decimales
           li.textContent = li.textContent.replace(/(\d+(\.\d+)?)/, (match) => {
             return parseFloat(match).toFixed(2);
