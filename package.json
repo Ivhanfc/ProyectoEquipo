@@ -2,6 +2,7 @@
   "dependencies": {
     "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
     "expo": "^52.0.42",
-    "firebase": "^11.5.0"
+    "firebase": "^11.5.0",
+    "firebase-tools": "^14.1.0"
   }
 }
