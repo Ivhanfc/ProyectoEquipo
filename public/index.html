@@ -10,28 +10,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
   <link rel='stylesheet'
     href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
-  <title>AEGIS.</title>
+  <title>AEGIS</title>
 </head>
 
 <body>
   <header>
-    <h1>AEGIS</h1>
+    <div class="menu-toggle" id="toggleBtn">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <h1 class="titulo">AEGIS</h1>
+    <nav class="menu" id="menu">
+      <a href="index.html">Inicio</a>
+      <a href="emergencycontact.html">Contacto de Emergencia</a>
+      <a href="#">Cerrar Sesion</a>
+    </nav>
   </header>
-  <div class="main-container">
 
+  <h2 id="description-page">Monitorea en tiempo real. Cada sensor, cada piso, siempre bajo control.</h2>
+
+  <div class="main-container">
     <a href="logspuertapr.html">
     <div class="sensor-info">
       <img src="door-open.png" alt="puerta">
       <div class="nombres-sensor">
-        <p class="label-main">Puerta Principal</p>
+        <h2 class="label-main">Puerta Principal</h2>
         <p>Sensor ultrasonico</p>
       </div>
       <div class="space"></div>
-      <img src="angle-small-right.png" alt="">
+      <img src="flecha-correcta.png" alt="">
     </div>
   </a>
 
-<a href="logvenranasalon.html">
+<a href="logsventanasalon.html">
     <div class="sensor-info">
       <img src="ventana-de-la-chimenea-de-la-casa.png" alt="window">
       <div class="nombres-sensor">
@@ -39,11 +51,11 @@
         <p>Sensor ultrasonico</p>
       </div>
       <div class="space"></div>
-    <img src="angle-small-right.png" alt="">
+    <img src="flecha-correcta.png" alt="">
     </div>
   </a>
 
-    <a href="sensortem.html">
+    <a href="logsventanasalon copy.html">
     <div class="sensor-info">
       <img src="temperatura-baja.png" alt="window">
       <div class="nombres-sensor">
@@ -51,11 +63,11 @@
         <p>Sensor de Temperatura</p>
       </div>
       <div class="space"></div>
-      <img src="angle-small-right.png" alt="">
+      <img src="flecha-correcta.png" alt="">
     </div>
   </a>
 
-  <a href="loggas.html">
+  <a href="loggaso.html">
     <div class="sensor-info">
       <img src="gas.png" alt="window">
       <div class="nombres-sensor">
@@ -63,10 +75,28 @@
         <p>Sensor de Gas</p>
       </div>
       <div class="space"></div>
-      <img src="angle-small-right.png">
+      <img src="flecha-correcta.png">
     </div>
   </div>
 </a>
+
+<div class="bottom-section">
+  <div class="bottom-inside-section">
+    <a href="#">
+      <div class="pag-section">
+        <img src="campana.png">
+        <h3>Descripcion</h3>
+      </div>
+    </a>
+
+    <a href="#">
+      <div class="pag-section">
+        <img src="pregunta (1).png">
+        <h3>Acerca De</h3>
+      </div>
+    </a>
+  </div>
+</div>
 
 
   <section class="emergency-button">
@@ -137,7 +167,18 @@
     // Ejecutar cuando cargue la página
     window.onload = getLocation;
   </script>
-  
-</body>
 
+<script>
+  const toggleBtn = document.getElementById('toggleBtn');
+  const menu = document.getElementById('menu');
+
+  toggleBtn.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+</script>
+  
+
+
+</body>
+<script src="main.js"></script>
 </html>

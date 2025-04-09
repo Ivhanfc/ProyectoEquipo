@@ -13,22 +13,31 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
   <script src="conexionjs.js" defer></script>
 
-  <title>PuertaPrincipal</title>
+  <title>PuertaCuarto</title>
 </head>
 
 <body>
   <header>
-    <h1>AEGIS</h1>
+    <div class="menu-toggle" id="toggleBtn">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <h1 class="titulo">AEGIS</h1>
+    <nav class="menu" id="menu">
+      <a href="index.html">Inicio</a>
+      <a href="emergencycontact.html">Contacto de Emergencia</a>
+      <a href="#">Cerrar Sesion</a>
+    </nav>
   </header>
 
 
   <div class="main-container">
     <div class="sensor-informacion">
-      <img src="gas.png" alt="window">
+      <img src="door-open.png" alt="">
       <div class="bottom-part">
-        <h2>Sensor de gas Salon</h2>
-        <p>Sensor Gas</p>
-        <p id="estado">Estado: activo</p>
+        <h2>Puerta del Cuarto</h2>
+        <p>Sensor Ultrasonico</p>
         <p>Registro:</p>
         
         <ul id="sensor-list"></ul>
@@ -36,19 +45,27 @@
 
         <div class="menu-bottom">
           <a href="index.html">Regresar</a>
-          <button><a href="#">Cerrar Puerta</a></button>
-        </div>
-        <button id="registros-ver">Registros</button>
-        <div id="dropdown-menu" class="dropdown-content">
-          <p>registro 1</p>
-          <p>registro 2</p>
-          <p>registro 3</p>
-          <p>registro 4</p>
-          <p>registro 5</p>
+          <button>Cerrar Puerta</button>
         </div>
       </div>
     </div>
   </div>
+<h2 class="datos-container">Datos Actualizados</h2>
+<br><br><br>
+
+        <div class="registros-container">
+        <button id="registros-ver">Registros</button>
+        <div id="dropdown-menu" class="dropdown-content">
+          <p>Registro 1</p>
+          <p>Registro 2</p>
+          <p>Registro 3</p>
+          <p>Registro 4</p>
+          <p>Registro 5</p>
+        </div>
+      </div>
+     
+    
+  
 
   <script>
     // Configuración de Firebase
@@ -69,7 +86,7 @@
     const database = firebase.database();
 
     // Escuchar datos en tiempo real
-    database.ref('sensores/gas').on('value', (snapshot) => {
+    database.ref('sensores/utrasonico').on('value', (snapshot) => {
       const data = snapshot.val();
       if (data) {
         document.getElementById('estado').textContent = `Estado: ${data.estado}`;
@@ -78,7 +95,7 @@
     });
 
     // Mostrar el historial de registros
-    database.ref('sensores/gas').on('value', (snapshot) => {
+    database.ref('sensores/ultrasonico').on('value', (snapshot) => {
       const data = snapshot.val();
       const sensorList = document.getElementById('sensor-list');
       sensorList.innerHTML = '';
@@ -89,6 +106,7 @@
           li.textContent = `${key}: ${data[key]}`;
           sensorList.appendChild(li);
           //agregar cm al final de cada registro
+          li.textContent += '';
           //redondear a 2 decimales
           li.textContent = li.textContent.replace(/(\d+(\.\d+)?)/, (match) => {
             return parseFloat(match).toFixed(2);
@@ -113,6 +131,15 @@
       }
     });
   </script>
+
+<script>
+  const toggleBtn = document.getElementById('toggleBtn');
+  const menu = document.getElementById('menu');
+
+  toggleBtn.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+</script>
 
 </body>
 
