@@ -144,9 +144,30 @@
 
   toggleBtn.addEventListener('click', () => {
     menu.classList.toggle('show');
-  });
-</script>
+    //adapta esto var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
+var urlencoded = new URLSearchParams();
+urlencoded.append("token","8p976c2o49ng5yz6");
+urlencoded.append("to","+526643391374");
+urlencoded.append("body","La API de WhatsApp en UltraMsg.com funciona bien");
+
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: urlencoded,
+  redirect: 'follow'
+};
+
+fetch("https://api.ultramsg.com/instance113653/messages/chat", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  
+  });
+
+</script>
 </body>
 
 </html>

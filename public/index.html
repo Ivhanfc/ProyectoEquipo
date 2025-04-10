@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEGIS</title>
   <link rel="stylesheet" href="style.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
-  <link rel='stylesheet'
-    href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
-  <title>AEGIS</title>
 </head>
 
 <body>
@@ -24,7 +21,7 @@
     <nav class="menu" id="menu">
       <a href="index.html">Inicio</a>
       <a href="emergencycontact.html">Contacto de Emergencia</a>
-      <a href="#">Cerrar Sesion</a>
+      <a href="#">Cerrar Sesión</a>
     </nav>
   </header>
 
@@ -32,153 +29,174 @@
 
   <div class="main-container">
     <a href="logspuertapr.html">
-    <div class="sensor-info">
-      <img src="door-open.png" alt="puerta">
-      <div class="nombres-sensor">
-        <h2 class="label-main">Puerta Principal</h2>
-        <p>Sensor ultrasonico</p>
+      <div class="sensor-info">
+        <img src="door-open.png" alt="puerta">
+        <div class="nombres-sensor">
+          <h2 class="label-main">Puerta Principal</h2>
+          <p>Sensor ultrasonico</p>
+        </div>
+        <div class="space"></div>
+        <img src="flecha-correcta.png" alt="">
       </div>
-      <div class="space"></div>
-      <img src="flecha-correcta.png" alt="">
-    </div>
-  </a>
+    </a>
 
-<a href="logsventanasalon.html">
-    <div class="sensor-info">
-      <img src="ventana-de-la-chimenea-de-la-casa.png" alt="window">
-      <div class="nombres-sensor">
-        <p class="label-main">Puerta Cuarto</p>
-        <p>Sensor ultrasonico</p>
+    <a href="logsventanasalon.html">
+      <div class="sensor-info">
+        <img src="ventana-de-la-chimenea-de-la-casa.png" alt="window">
+        <div class="nombres-sensor">
+          <p class="label-main">Puerta Cuarto</p>
+          <p>Sensor ultrasonico</p>
+        </div>
+        <div class="space"></div>
+        <img src="flecha-correcta.png" alt="">
       </div>
-      <div class="space"></div>
-    <img src="flecha-correcta.png" alt="">
-    </div>
-  </a>
+    </a>
 
     <a href="logsventanasalon copy.html">
-    <div class="sensor-info">
-      <img src="temperatura-baja.png" alt="window">
-      <div class="nombres-sensor">
-        <p class="label-main">Sala de Estar</p>
-        <p>Sensor de Temperatura</p>
-      </div>
-      <div class="space"></div>
-      <img src="flecha-correcta.png" alt="">
-    </div>
-  </a>
-
-  <a href="logsgas.html">
-    <div class="sensor-info">
-      <img src="gas.png" alt="window">
-      <div class="nombres-sensor">
-        <p class="label-main">Sala de Estar</p>
-        <p>Sensor de Gas</p>
-      </div>
-      <div class="space"></div>
-      <img src="flecha-correcta.png">
-    </div>
-  </div>
-</a>
-
-<div class="bottom-section">
-  <div class="bottom-inside-section">
-    <a href="descripcion.html">
-      <div class="pag-section">
-        <img src="campana.png">
-        <h3>Descripcion</h3>
+      <div class="sensor-info">
+        <img src="temperatura-baja.png" alt="window">
+        <div class="nombres-sensor">
+          <p class="label-main">Sala de Estar</p>
+          <p>Sensor de Temperatura</p>
+        </div>
+        <div class="space"></div>
+        <img src="flecha-correcta.png" alt="">
       </div>
     </a>
 
-    <a href="Acercade.html">
-      <div class="pag-section">
-        <img src="pregunta (1).png">
-        <h3>Acerca De</h3>
+    <a href="logsgas.html">
+      <div class="sensor-info">
+        <img src="gas.png" alt="gas">
+        <div class="nombres-sensor">
+          <p class="label-main">Sala de Estar</p>
+          <p>Sensor de Gas</p>
+        </div>
+        <div class="space"></div>
+        <img src="flecha-correcta.png" alt="">
       </div>
     </a>
   </div>
-</div>
 
+  <div class="bottom-section">
+    <div class="bottom-inside-section">
+      <a href="descripcion.html">
+        <div class="pag-section">
+          <img src="campana.png">
+          <h3>Descripción</h3>
+        </div>
+      </a>
+
+      <a href="Acercade.html">
+        <div class="pag-section">
+          <img src="pregunta (1).png">
+          <h3>Acerca De</h3>
+        </div>
+      </a>
+    </div>
+  </div>
 
   <section class="emergency-button">
     <div class="button-inside">
       <div class="sos-section"></div>
       <h2>¿Tienes una Emergencia?</h2>
-      <p>Presiona el boton debajo y se te asistira pronto</p>
+      <p>Presiona el botón debajo y se te asistirá pronto</p>
       <div class="sos-container">
-      <div class="pulse-ring"></div>
-     <div class="pulse-ring"></div>
-      <button type="submit" id="emergencyBtn">SOS</button>
-    </div>
-  
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring"></div>
+        <button type="button" id="emergencyBtn">SOS</button>
+      </div>
 
       <div class="emergency-information">
         <div id="location-section">
           <i class='bx bx-current-location'></i>
           <div>
-            <strong>Your current address</strong>
-            <p id="user-address">Loading location...</p>
+            <strong>Tu ubicación actual</strong>
+            <p id="user-address">Cargando ubicación...</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </section>
-  <script>
-    // Solicitar permiso
-    function pedirPermisoNotificaciones() {
-      if ("Notification" in window) {
-        Notification.requestPermission().then(permiso => {
-          if (permiso === "granted") {
-            new Notification("¡Hola!", {
-              body: "Esta es una notificación web.",
-              icon: "https://ejemplo.com/icono.png"
-            });
-          }
-        });
-      }
-    }
 
-    // Llamar esta función desde un botón en tu web
-    document.getElementById("boton-notificar").addEventListener("click", pedirPermisoNotificaciones);
-  </script>
   <script>
-    // Coordenadas -> Dirección (usando OpenCage API)
-    const API_KEY = 'f2c0a8b6421247ee8ef1b23bad18cb96'; // Puedes conseguir una gratis en https://opencagedata.com/
-  
+    let latitud = null;
+    let longitud = null;
+    let direccionUsuario = "Ubicación no disponible aún";
+
+    const API_KEY = 'f2c0a8b6421247ee8ef1b23bad18cb96';
+
+    // Obtener ubicación del usuario
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(async (position) => {
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
-  
-          const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${API_KEY}`);
-          const data = await response.json();
-          const address = data.results[0].formatted;
-  
-          document.getElementById("user-address").textContent = address;
+          latitud = position.coords.latitude;
+          longitud = position.coords.longitude;
+
+          try {
+            const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitud}+${longitud}&key=${API_KEY}`);
+            const data = await response.json();
+            direccionUsuario = data.results[0].formatted;
+            document.getElementById("user-address").textContent = direccionUsuario;
+          } catch (error) {
+            direccionUsuario = "No se pudo traducir ubicación";
+            document.getElementById("user-address").textContent = direccionUsuario;
+          }
         }, () => {
-          document.getElementById("user-address").textContent = "No se pudo obtener tu ubicación";
+          direccionUsuario = "No se pudo obtener tu ubicación";
+          document.getElementById("user-address").textContent = direccionUsuario;
         });
       } else {
-        document.getElementById("user-address").textContent = "Geolocalización no soportada";
+        direccionUsuario = "Geolocalización no soportada";
+        document.getElementById("user-address").textContent = direccionUsuario;
       }
     }
-  
-    // Ejecutar cuando cargue la página
+
     window.onload = getLocation;
+
+    // Activar la función de emergencia al hacer clic en cualquier pulse-ring
+    document.querySelectorAll('.pulse-ring').forEach(ring => {
+      ring.addEventListener('click', () => {
+        if (latitud === null || longitud === null) {
+          alert("Ubicación no disponible. Intenta de nuevo.");
+          return;
+        }
+
+        const linkMaps = `https://www.google.com/maps?q=${latitud},${longitud}`;
+        const mensaje = `🚨 ¡Emergencia detectada!\n📍Ubicación: ${direccionUsuario}\n🗺️ Mapa: ${linkMaps}`;
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        const urlencoded = new URLSearchParams();
+        urlencoded.append("token", "8p976c2o49ng5yz6");
+        urlencoded.append("to", "+526643391374");
+        urlencoded.append("body", mensaje);
+
+        const requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: urlencoded,
+          redirect: 'follow'
+        };
+
+        fetch("https://api.ultramsg.com/instance113653/messages/chat", requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            alert("Mensaje de emergencia enviado correctamente.");
+            console.log("Resultado:", result);
+          })
+          .catch(error => {
+            alert("Hubo un error al enviar el mensaje.");
+            console.log("Error:", error);
+          });
+      });
+    });
+
+    // Menú hamburguesa
+    document.getElementById('toggleBtn').addEventListener('click', () => {
+      document.getElementById('menu').classList.toggle('show');
+    });
   </script>
-
-<script>
-  const toggleBtn = document.getElementById('toggleBtn');
-  const menu = document.getElementById('menu');
-
-  toggleBtn.addEventListener('click', () => {
-    menu.classList.toggle('show');
-  });
-</script>
-  
-
-
 </body>
-<script src="main.js"></script>
+
 </html>
