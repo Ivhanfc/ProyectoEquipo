@@ -21,6 +21,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  width: 100%;
 }
 
 
@@ -141,7 +142,7 @@ header {
 .label-main {
   font-size: clamp(18px, 4vw, 26px);
   letter-spacing: 1px;
-  font-weight: lighter;
+  font-weight: 500;
   font-family: Montserrat;
 }
 
@@ -192,7 +193,7 @@ a {
   height: auto;
   align-items: center;
   text-align: center;
-  translate: 19.5%;
+  translate: 22.7%;
   margin-top: 15px;
 }
 
@@ -205,7 +206,7 @@ a {
   padding: 5px;
   background-color: #02066F;
   border-radius: 10px;
-  width: 400px;
+  width: 450px;
   height: 120px;
   color: white;
 }

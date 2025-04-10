@@ -86,7 +86,7 @@
     const database = firebase.database();
 
     // Escuchar datos en tiempo real
-    database.ref('sensores/utrasonico').on('value', (snapshot) => {
+    database.ref('sensores/utrasonico2').on('value', (snapshot) => {
       const data = snapshot.val();
       if (data) {
         document.getElementById('estado').textContent = `Estado: ${data.estado}`;
@@ -95,7 +95,7 @@
     });
 
     // Mostrar el historial de registros
-    database.ref('sensores/ultrasonico').on('value', (snapshot) => {
+    database.ref('sensores/ultrasonico2').on('value', (snapshot) => {
       const data = snapshot.val();
       const sensorList = document.getElementById('sensor-list');
       sensorList.innerHTML = '';

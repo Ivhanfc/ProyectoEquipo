@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="Acercade.css">
+    <title>Acerca_De</title>
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" id="toggleBtn">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <h1 class="titulo">AEGIS</h1>
+        <nav class="menu" id="menu">
+          <a href="index.html">Inicio</a>
+          <a href="emergencycontact.html">Contacto de Emergencia</a>
+          <a href="#">Cerrar Sesion</a>
+        </nav>
+      </header>
+
+<main>
+    <br><br><br><br>
+    <section class="contact-us-title">
+        <h2>Contactanos</h2>
+        <p>Para cualquier duda o recomendacion sientete libre de mandarnos tu feedback</p>
+    </section>
+    <div class="container">
+        <div class="form-section">
+          <form>
+            <div class="row">
+              <div class="input-group">
+                <label>Nombres</label>
+                <input type="text" placeholder="EJ. Monserrat" />
+              </div>
+              <div class="input-group">
+                <label>Apellidos</label>
+                <input type="text" placeholder="EJ. Diaz Amparo" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-group">
+                <label>Correo Electronico</label>
+                <input type="email" placeholder="example@mail.com" />
+              </div>
+              <div class="input-group">
+                <label>Subject</label>
+                <input type="text" placeholder="¿Como podemos ayudar?" />
+              </div>
+            </div>
+            <div class="input-group">
+              <label>Comentarios / Pregutnas</label>
+              <textarea placeholder="Tu mensaje..."></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+        <div class="image-section">
+          <div class="badge"></div>
+          <img src="undraw_organizing-data_uns9.png" alt="Burger and fries"/>
+        </div>
+      </div>
+
+      <section class="info-container">
+        <div class="info-inside">
+            <div class="data-inc">
+                <div class="img">
+                    <img src="phone-call-solid-108.png" alt="telefono">
+                </div>
+                <div class="right-info">
+                    <h3>Llamanos!</h3>
+                    <p>(+52) 81 4799 8874</p>
+                </div>
+            </div>
+
+            <div class="data-inc">
+                <div class="img">
+                   <img src="mail-send-regular-108.png" alt="email">
+                </div>
+                <div class="right-info">
+                    <h3>Mandanos un Email!</h3>
+                    <p>diego07mateo@gmail.com</p>
+                </div>
+            </div>
+        </div>
+      </section>
+</main>
+
+</body>
+<script>
+    const toggleBtn = document.getElementById('toggleBtn');
+    const menu = document.getElementById('menu');
+  
+    toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+  </script>
+</html>

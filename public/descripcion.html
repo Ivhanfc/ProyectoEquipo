@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="descripcion.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descripcion</title>
+</head>
+<body>
+        <header>
+            <div class="menu-toggle" id="toggleBtn">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+            <h1 class="titulo">AEGIS</h1>
+            <nav class="menu" id="menu">
+              <a href="index.html">Inicio</a>
+              <a href="emergencycontact.html">Contacto de Emergencia</a>
+              <a href="#">Cerrar Sesion</a>
+            </nav>
+          </header>
+
+          <main>
+            <h1 class="acerca-de">Acerca De</h1>
+            <section class="top-section">
+              <div class="display-block">
+                <h2>¿Que es AEGIS?</h2>
+                <P>AEGIS es un proyecto que surguio con el pensamiento de reducir la tasa de accidentes, tipo robos, asaltos, fugas de gas, incendios e inundaciones, priorizando salvaguardar la seguridad e integridad de nustros usuarios y brindando una sensascion de proteccion al alcance de la palma de tu mano</P>
+              </div>
+                <div class="img-right">
+                  <img src="AEGIS logo .jpg">
+                </div>
+            </section>
+<br><br>
+            <section class="top-section">
+              <div class="img-right">
+                <img src="Imagen-Guapos.jpg">
+              </div>
+              <div class="display-block">
+                <h2>¿Como fue creado?</h2>
+                <P id="left">AEGIS es un concepto de seguridad mediante la conexion entre arduinos ESP32, una base de datos y una pagina web.Tras solo 2 semanas, cada quien desde sus casas y solo reunirnos en la escuela salio este proyecto del cual estamos muy orgullosos de formar parte, creemos en esto </P>
+              </div>
+            </section>
+          </main>
+            <section class="who-are-we">
+              <div class="who-inside">
+                <h2>¿Quienes Somos?</h2>
+                <h4>Somos orgullosos Linces del Plantel CECYTE Zona Rio, estudiantes de la especialidad de programacion: Beltran Gonzalez Ivan Francisco y Murguia Guerrero Diego Adrian, y junto con mecatronica: Melendres Lopez Salvador y Pineda Villaseñor Manuel Ernesto, desarrollamos este proyecto, encargandonos de tareas tanto de software como de hardware.</h4>
+              <div class="images">
+                <img src="Foto-chambiadora1.jpg">
+                <img src="Foto-chambiadora2.jpg">
+              </div>
+              </div>
+            </section>
+         
+</body>
+<script>
+    const toggleBtn = document.getElementById('toggleBtn');
+    const menu = document.getElementById('menu');
+  
+    toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+  </script>
+    
+</html>

@@ -91,6 +91,12 @@
       if (data) {
         document.getElementById('estado').textContent = `Estado: ${data.estado}`;
         document.getElementById('ultimo-movimiento').textContent = `Último movimiento: ${data.ultimo_movimiento}`;
+        const timestamp = new Date().toLocaleString(); // Fecha y hora legible
+        const distancia = data.distancia || 0; // Asegúrate de que el nodo se llame "distancia"
+
+        // Guardar en historial
+        firebase.database().ref('historial_puerta/' + timestamp).set(distancia);
+
       }
     });
 
